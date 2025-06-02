@@ -160,7 +160,11 @@ $card-shadow-hover: 0 8px 30px $shadow-medium;
 
 // Navigation
 $navbar-height: 80px;
+$navbar-height-mobile: 72px; // Slightly shorter on mobile
 $navbar-padding: $spacing-md 0;
+
+// Marquee
+$marquee-height: 40px;
 
 // Sections
 $section-padding: $spacing-3xl 0;

@@ -29,6 +29,11 @@
 
 .main-content {
   flex: 1;
-  padding-top: $navbar-height; // Account for fixed navbar
+  padding-top: calc(#{$navbar-height} + #{$marquee-height}); // Account for fixed navbar and marquee
+
+  // Adjust for mobile navbar height
+  @include mobile-only {
+    padding-top: calc(#{$navbar-height-mobile} + #{$marquee-height});
+  }
 }
 </style>

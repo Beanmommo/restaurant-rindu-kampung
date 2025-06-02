@@ -46,10 +46,15 @@
 <style lang="scss" scoped>
 .hero {
   position: relative;
-  min-height: calc(100vh - #{$navbar-height});
+  min-height: calc(100vh - #{$navbar-height} - #{$marquee-height});
   display: flex;
   align-items: center;
   overflow: hidden;
+
+  // Adjust for mobile navbar height
+  @include mobile-only {
+    min-height: calc(100vh - #{$navbar-height-mobile} - #{$marquee-height});
+  }
 }
 
 .hero-background {
@@ -77,7 +82,12 @@
   grid-template-columns: 1fr;
   gap: $spacing-2xl;
   align-items: center;
-  min-height: calc(100vh - #{$navbar-height * 2});
+  min-height: calc(100vh - #{$navbar-height} - #{$marquee-height} - #{$spacing-2xl});
+
+  // Adjust for mobile navbar height
+  @include mobile-only {
+    min-height: calc(100vh - #{$navbar-height-mobile} - #{$marquee-height} - #{$spacing-2xl});
+  }
 }
 
 .hero-text {

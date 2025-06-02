@@ -1,5 +1,8 @@
 <template>
   <div class="homepage">
+    <!-- Halal Certification Marquee -->
+    <HalalMarquee />
+
     <!-- Hero Section -->
     <HeroSection />
 

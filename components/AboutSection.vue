@@ -13,7 +13,7 @@
               </p>
 
               <p>
-                Founded in 2018 by Chef Siti Rahman, our restaurant was born from a deep passion for preserving
+                Founded in 2018 by Chef Eddy, our restaurant was born from a deep passion for preserving
                 and sharing the rich culinary traditions of Southeast Asia. Having grown up in Kuala Lumpur and
                 later trained in Jakarta, Chef Siti brings decades of experience and family recipes passed down
                 through generations.
@@ -32,7 +32,7 @@
             <div class="image-placeholder">
               <div class="image-content">
                 <span class="chef-emoji">👨‍🍳</span>
-                <p>Chef Siti Rahman</p>
+                <p>Chef Eddy</p>
               </div>
             </div>
           </div>

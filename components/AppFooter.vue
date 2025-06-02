@@ -75,7 +75,7 @@
 
           <div class="footer-copyright">
             <p>&copy; {{ currentYear }} Restaurant Rindu Kampung. All rights reserved.</p>
-            <p class="footer-note">Made with ❤️ for authentic Malaysian-Indonesian cuisine lovers</p>
+            <p class="footer-note">Powered by Daily Bread Media</p>
           </div>
         </div>
       </div>

@@ -8,7 +8,7 @@
             <h2 class="section-title">About Restaurant Rindu Kampung</h2>
             <div class="about-story">
               <p class="lead">
-                "Rindu Kampung" means "longing for home" in Bahasa, and that's exactly what we bring to your table –
+                "Rindu Kampung" means "longing for home" in Malay, and that's exactly what we bring to your table –
                 the authentic taste of home from Indonesia and Malaysia.
               </p>
 

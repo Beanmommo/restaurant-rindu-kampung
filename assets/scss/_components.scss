@@ -1,0 +1,489 @@
+// ===================================
+// COMPONENT SPECIFIC STYLES
+// ===================================
+
+// Note: Variables and mixins are imported by main.scss
+// This file contains component-specific styles that use those variables and mixins
+
+// Navigation Component
+// ===================================
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $z-fixed;
+  background: rgba($bg-primary, 0.95);
+  backdrop-filter: blur(10px);
+  transition: $transition-all;
+  border-bottom: 1px solid transparent;
+
+  &-scrolled {
+    background: rgba($bg-primary, 0.98);
+    border-bottom-color: $border-light;
+    @include shadow-light;
+  }
+
+  &-content {
+    @include flex-between;
+    padding: $spacing-md 0;
+  }
+
+  &-brand {
+    @include flex-center;
+    gap: $spacing-md;
+    text-decoration: none;
+    color: $text-primary;
+  }
+
+  .logo {
+    width: 40px;
+    height: 40px;
+    border-radius: $radius-md;
+  }
+
+  .brand-text {
+    font-family: $font-heading;
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-semibold;
+    color: $text-primary;
+  }
+
+  &-menu {
+    display: none;
+    align-items: center;
+    gap: $spacing-xl;
+
+    @include desktop-up {
+      display: flex;
+    }
+  }
+
+  &-link {
+    text-decoration: none;
+    color: $text-primary;
+    font-weight: $font-weight-medium;
+    transition: $transition-colors;
+    position: relative;
+
+    &:hover {
+      color: $primary-green;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: $primary-green;
+      transition: width $transition-normal;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+
+  &-cta {
+    margin-left: $spacing-md;
+  }
+
+  &-toggle {
+    @include flex-column;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    gap: 4px;
+
+    @include desktop-up {
+      display: none;
+    }
+  }
+
+  .hamburger-line {
+    width: 100%;
+    height: 3px;
+    background: $text-primary;
+    transition: $transition-all;
+    border-radius: $radius-sm;
+
+    &.active:nth-child(1) {
+      transform: rotate(45deg) translate(6px, 6px);
+    }
+
+    &.active:nth-child(2) {
+      opacity: 0;
+    }
+
+    &.active:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+  }
+
+  // Mobile menu
+  @include mobile-only {
+    &-menu {
+      position: fixed;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: $bg-primary;
+      flex-direction: column;
+      padding: $spacing-xl;
+      gap: $spacing-lg;
+      @include shadow-medium;
+      transform: translateY(-100%);
+      opacity: 0;
+      visibility: hidden;
+      transition: $transition-all;
+
+      &-open {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    .navbar-cta {
+      margin-left: 0;
+      margin-top: $spacing-md;
+    }
+  }
+}
+
+// Hero Section Component
+// ===================================
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  @include flex-center;
+  overflow: hidden;
+  padding-top: $navbar-height;
+
+  &-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, $bg-cream 0%, $bg-light 100%);
+    z-index: -2;
+  }
+
+  &-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+      circle at 30% 70%,
+      rgba($primary-green, 0.1) 0%,
+      transparent 50%
+    );
+    z-index: -1;
+  }
+
+  &-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-2xl;
+    align-items: center;
+    min-height: calc(100vh - #{$navbar-height * 2});
+
+    @include tablet-up {
+      grid-template-columns: 1fr 1fr;
+      gap: $spacing-3xl;
+    }
+  }
+
+  &-text {
+    text-align: center;
+
+    @include tablet-up {
+      text-align: left;
+    }
+  }
+
+  &-title {
+    @include heading-1;
+    margin-bottom: $spacing-md;
+    line-height: $line-height-tight;
+  }
+
+  &-motto {
+    font-size: $font-size-2xl;
+    color: $text-light;
+    font-style: italic;
+    margin-bottom: $spacing-lg;
+    font-family: $font-heading;
+
+    @include mobile-only {
+      font-size: $font-size-xl;
+    }
+  }
+
+  &-description {
+    font-family: $font-primary;
+    font-size: $font-size-base;
+    line-height: $line-height-relaxed;
+    color: $text-secondary;
+    max-width: 600px;
+    margin: 0 auto $spacing-xl;
+
+    @include tablet-up {
+      margin: 0 0 $spacing-xl;
+    }
+  }
+
+  &-actions {
+    @include flex-column;
+    gap: $spacing-md;
+    align-items: center;
+
+    @include tablet-up {
+      flex-direction: row;
+      justify-content: flex-start;
+    }
+  }
+
+  &-image {
+    @include flex-center;
+
+    &-placeholder {
+      width: 100%;
+      max-width: 500px;
+      height: 400px;
+      @include gradient-green;
+      border-radius: $radius-2xl;
+      @include flex-center;
+      @include shadow-medium;
+      position: relative;
+      overflow: hidden;
+
+      @include mobile-only {
+        height: 300px;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        @include background-pattern;
+        opacity: 0.3;
+      }
+    }
+  }
+
+  .image-content {
+    text-align: center;
+    color: $text-white;
+    z-index: 1;
+    position: relative;
+
+    .image-text {
+      font-size: $font-size-xl;
+      font-weight: $font-weight-semibold;
+      text-shadow: 0 2px 4px rgba($secondary-black, 0.3);
+    }
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: $spacing-xl;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s infinite;
+
+    .scroll-arrow {
+      width: 24px;
+      height: 24px;
+      border-right: 2px solid $primary-green;
+      border-bottom: 2px solid $primary-green;
+      transform: rotate(45deg);
+    }
+  }
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+// Menu Preview Component
+// ===================================
+
+.menu-preview {
+  background: $bg-light-green;
+
+  .section-subtitle {
+    text-align: center;
+    color: $text-secondary;
+    font-size: $font-size-lg;
+    margin-bottom: $spacing-2xl;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .menu-categories {
+    @include flex-center;
+    gap: $spacing-md;
+    margin-bottom: $spacing-2xl;
+    flex-wrap: wrap;
+  }
+
+  .category-btn {
+    padding: $spacing-md $spacing-lg;
+    border: 2px solid $border-light;
+    background: $bg-primary;
+    color: $text-secondary;
+    border-radius: 25px;
+    font-weight: $font-weight-medium;
+    cursor: pointer;
+    transition: $transition-all;
+
+    &:hover,
+    &.active {
+      background: $primary-green;
+      color: $text-white;
+      border-color: $primary-green;
+    }
+
+    @include mobile-only {
+      padding: $spacing-sm $spacing-md;
+      font-size: $font-size-sm;
+    }
+  }
+
+  .menu-item {
+    overflow: hidden;
+    transition: $transition-transform;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    &-image {
+      position: relative;
+      height: 200px;
+      margin-bottom: $spacing-lg;
+
+      .image-placeholder {
+        width: 100%;
+        height: 100%;
+        @include gradient-green;
+        border-radius: $radius-md;
+        @include flex-center;
+        position: relative;
+        overflow: hidden;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba($secondary-black, 0.1);
+          background-image: radial-gradient(
+            circle at 20% 80%,
+            rgba($text-white, 0.1) 0%,
+            transparent 50%
+          );
+        }
+
+        .cuisine-flag {
+          font-size: $font-size-5xl;
+          z-index: 1;
+          position: relative;
+        }
+      }
+
+      .item-badge {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: $accent-red;
+        color: $text-white;
+        padding: $spacing-xs $spacing-md;
+        border-radius: 15px;
+        font-size: $font-size-xs;
+        font-weight: $font-weight-semibold;
+      }
+    }
+
+    &-content {
+      padding: 0 $spacing-sm;
+
+      .item-name {
+        color: $text-primary;
+        margin-bottom: $spacing-sm;
+        font-size: $font-size-xl;
+      }
+
+      .item-description {
+        color: $text-secondary;
+        font-size: $font-size-sm;
+        line-height: $line-height-normal;
+        margin-bottom: $spacing-md;
+      }
+
+      .item-footer {
+        @include flex-between;
+
+        .item-price {
+          font-size: $font-size-xl;
+          font-weight: $font-weight-semibold;
+          color: $primary-green;
+        }
+
+        .item-origin {
+          font-size: $font-size-sm;
+          color: $text-secondary;
+          font-style: italic;
+        }
+      }
+    }
+  }
+
+  .menu-cta {
+    text-align: center;
+    margin-top: $spacing-2xl;
+    @include flex-center;
+    gap: $spacing-md;
+    flex-wrap: wrap;
+
+    @include mobile-only {
+      flex-direction: column;
+      align-items: center;
+
+      .btn-large {
+        width: 100%;
+        max-width: 250px;
+      }
+    }
+  }
+}

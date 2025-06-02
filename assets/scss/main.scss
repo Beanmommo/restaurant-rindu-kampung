@@ -1,0 +1,265 @@
+// Import variables, mixins, components, and utilities
+@import "variables";
+@import "mixins";
+@import "components";
+@import "utilities";
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $font-primary;
+  line-height: $line-height-normal;
+  color: $text-primary;
+  background-color: $bg-primary;
+  margin: 0;
+  padding: 0;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-heading;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-tight;
+  margin-bottom: $spacing-md;
+}
+
+h1 {
+  font-size: $font-size-5xl;
+  font-weight: $font-weight-bold;
+}
+
+h2 {
+  font-size: $font-size-4xl;
+  font-weight: $font-weight-semibold;
+}
+
+h3 {
+  font-size: $font-size-2xl;
+}
+
+p {
+  margin-bottom: $spacing-md;
+}
+
+/* Container and layout */
+.container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: $container-padding;
+}
+
+.section {
+  padding: $section-padding;
+}
+
+.section-title {
+  text-align: center;
+  color: $text-primary;
+  margin-bottom: $spacing-2xl;
+  position: relative;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: $primary-green;
+    margin: $spacing-md auto;
+    border-radius: $radius-sm;
+  }
+}
+
+/* Buttons */
+.btn {
+  @include button-base;
+
+  &-primary {
+    @include button-primary;
+  }
+
+  &-secondary {
+    @include button-secondary;
+  }
+
+  &-accent {
+    background: $accent-red;
+    color: $text-white;
+
+    &:hover {
+      background: darken($accent-red, 10%);
+      @include button-hover-lift;
+    }
+  }
+
+  &-large {
+    padding: $btn-padding-lg;
+    font-size: $font-size-lg;
+  }
+}
+
+/* Cards */
+.card {
+  @include card-with-hover;
+}
+
+/* Grid system */
+.grid {
+  display: grid;
+  gap: $grid-gap;
+
+  &-2 {
+    grid-template-columns: 1fr;
+
+    @include tablet-up {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &-3 {
+    grid-template-columns: 1fr;
+
+    @include tablet-up {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include desktop-up {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+/* Utilities */
+.text-center {
+  text-align: center;
+}
+
+.text-primary {
+  color: $primary-green;
+}
+
+.text-accent {
+  color: $accent-red;
+}
+
+.mb-2 {
+  margin-bottom: $spacing-md;
+}
+
+.mb-4 {
+  margin-bottom: $spacing-xl;
+}
+
+.mt-4 {
+  margin-top: $spacing-xl;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.gap-4 {
+  gap: $spacing-md;
+}
+
+.gap-8 {
+  gap: $spacing-xl;
+}
+
+/* Responsive typography */
+@include mobile-only {
+  h1 {
+    font-size: $font-size-4xl;
+  }
+
+  h2 {
+    font-size: $font-size-3xl;
+  }
+
+  h3 {
+    font-size: $font-size-xl;
+  }
+
+  .section {
+    padding: $section-padding-sm;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Loading states */
+.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Focus styles for accessibility */
+.btn:focus,
+button:focus,
+a:focus {
+  outline: 2px solid $primary-green;
+  outline-offset: 2px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $bg-light;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $primary-green-light;
+  border-radius: $radius-md;
+
+  &:hover {
+    background: $primary-green;
+  }
+}

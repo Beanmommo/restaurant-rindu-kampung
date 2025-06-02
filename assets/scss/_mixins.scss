@@ -1,0 +1,373 @@
+// ===================================
+// RESTAURANT RINDU KAMPUNG MIXINS
+// ===================================
+
+@import "variables";
+
+// Media Query Mixins
+// ===================================
+
+@mixin mobile-only {
+  @media (max-width: #{$breakpoint-md - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet-up {
+  @media (min-width: $breakpoint-md) {
+    @content;
+  }
+}
+
+@mixin desktop-up {
+  @media (min-width: $breakpoint-lg) {
+    @content;
+  }
+}
+
+@mixin large-desktop-up {
+  @media (min-width: $breakpoint-xl) {
+    @content;
+  }
+}
+
+// Button Mixins
+// ===================================
+
+@mixin button-base {
+  display: inline-block;
+  padding: $btn-padding-md;
+  border: none;
+  border-radius: $radius-md;
+  font-weight: $font-weight-medium;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: $transition-all;
+  font-size: $font-size-base;
+  font-family: $font-primary;
+}
+
+@mixin button-hover-lift {
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba($primary-green, 0.3);
+  }
+}
+
+@mixin button-primary {
+  @include button-base;
+  background: $primary-green;
+  color: $text-white;
+
+  &:hover {
+    background: $primary-green-dark;
+    @include button-hover-lift;
+  }
+
+  &:focus {
+    outline: 2px solid $primary-green-light;
+    outline-offset: 2px;
+  }
+}
+
+@mixin button-secondary {
+  @include button-base;
+  background: transparent;
+  color: $primary-green;
+  border: 2px solid $primary-green;
+
+  &:hover {
+    background: $primary-green;
+    color: $text-white;
+  }
+}
+
+// Card Mixins
+// ===================================
+
+@mixin card-base {
+  background: $bg-primary;
+  border-radius: $card-radius;
+  padding: $card-padding;
+  box-shadow: $card-shadow;
+  transition: $transition-transform, box-shadow $transition-normal;
+}
+
+@mixin card-hover {
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $card-shadow-hover;
+  }
+}
+
+@mixin card-with-hover {
+  @include card-base;
+  @include card-hover;
+}
+
+// Flexbox Mixins
+// ===================================
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-column-center {
+  @include flex-column;
+  align-items: center;
+  justify-content: center;
+}
+
+// Typography Mixins
+// ===================================
+
+@mixin heading-base {
+  font-family: $font-heading;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-tight;
+  color: $text-primary;
+  margin-bottom: $spacing-md;
+}
+
+@mixin heading-1 {
+  @include heading-base;
+  font-size: $font-size-5xl;
+  font-weight: $font-weight-bold;
+
+  @include mobile-only {
+    font-size: $font-size-4xl;
+  }
+}
+
+@mixin heading-2 {
+  @include heading-base;
+  font-size: $font-size-4xl;
+
+  @include mobile-only {
+    font-size: $font-size-3xl;
+  }
+}
+
+@mixin heading-3 {
+  @include heading-base;
+  font-size: $font-size-2xl;
+
+  @include mobile-only {
+    font-size: $font-size-xl;
+  }
+}
+
+@mixin body-text {
+  font-family: $font-primary;
+  font-size: $font-size-base;
+  line-height: $line-height-relaxed;
+  color: $text-secondary;
+}
+
+@mixin small-text {
+  font-family: $font-primary;
+  font-size: $font-size-sm;
+  line-height: $line-height-normal;
+  color: $text-light;
+}
+
+// Background Mixins
+// ===================================
+
+@mixin gradient-green {
+  background: linear-gradient(
+    135deg,
+    $primary-green 0%,
+    $primary-green-dark 100%
+  );
+}
+
+@mixin gradient-green-light {
+  background: linear-gradient(
+    135deg,
+    $primary-green-light 0%,
+    $primary-green 100%
+  );
+}
+
+@mixin gradient-cultural {
+  background: linear-gradient(
+    135deg,
+    $primary-green 0%,
+    $cultural-batik-brown 100%
+  );
+}
+
+@mixin background-pattern {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="pattern" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23pattern)"/></svg>');
+}
+
+// Shadow Mixins
+// ===================================
+
+@mixin shadow-light {
+  box-shadow: 0 2px 10px $shadow-light;
+}
+
+@mixin shadow-medium {
+  box-shadow: 0 4px 20px $shadow-medium;
+}
+
+@mixin shadow-heavy {
+  box-shadow: 0 8px 30px $shadow-dark;
+}
+
+@mixin shadow-green {
+  box-shadow: 0 4px 20px $shadow-green;
+}
+
+// Icon Mixins
+// ===================================
+
+@mixin icon-container($size: 50px, $bg-color: $primary-green) {
+  width: $size;
+  height: $size;
+  background: $bg-color;
+  border-radius: $radius-lg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  svg {
+    width: #{$size * 0.5};
+    height: #{$size * 0.5};
+    color: $text-white;
+    stroke-width: 2;
+  }
+}
+
+// Form Mixins
+// ===================================
+
+@mixin form-input {
+  padding: $spacing-md;
+  border: 2px solid $border-light;
+  border-radius: $radius-md;
+  font-size: $font-size-base;
+  font-family: $font-primary;
+  transition: $transition-colors;
+  width: 100%;
+
+  &:focus {
+    outline: none;
+    border-color: $primary-green;
+  }
+
+  &::placeholder {
+    color: $text-muted;
+  }
+}
+
+@mixin form-label {
+  font-weight: $font-weight-medium;
+  color: $text-primary;
+  font-size: $font-size-sm;
+  margin-bottom: $spacing-sm;
+  display: block;
+}
+
+// Animation Mixins
+// ===================================
+
+@mixin fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@mixin hover-lift {
+  transition: $transition-transform;
+
+  &:hover {
+    transform: translateY(-3px);
+  }
+}
+
+@mixin pulse-animation {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+// Section Mixins
+// ===================================
+
+@mixin section-base {
+  padding: $section-padding;
+
+  @include mobile-only {
+    padding: $section-padding-sm;
+  }
+}
+
+@mixin section-title {
+  text-align: center;
+  color: $text-primary;
+  margin-bottom: $spacing-2xl;
+  position: relative;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: $primary-green;
+    margin: $spacing-md auto;
+    border-radius: $radius-sm;
+  }
+}
+
+// Utility Mixins
+// ===================================
+
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin truncate-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

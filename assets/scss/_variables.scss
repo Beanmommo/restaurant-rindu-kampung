@@ -1,0 +1,202 @@
+// ===================================
+// RESTAURANT RINDU KAMPUNG VARIABLES
+// ===================================
+
+// Color Palette - Green & Black Theme
+// ===================================
+
+// Primary Colors
+$primary-green: #2d5016; // Dark Forest Green
+$primary-green-light: #4a7c59; // Medium Green
+$primary-green-lighter: #6b8e5a; // Light Green
+$primary-green-dark: #1a3009; // Very Dark Green
+
+// Secondary Colors
+$secondary-black: #1a1a1a; // Pure Black
+$secondary-charcoal: #2c2c2c; // Charcoal
+$secondary-gray: #4a4a4a; // Dark Gray
+$secondary-gray-light: #6b6b6b; // Medium Gray
+
+// Accent Colors
+$accent-gold: #d4af37; // Gold (for special highlights)
+$accent-red: #dc143c; // Crimson (for alerts/special items)
+$accent-orange: #ff8c00; // Dark Orange (for CTAs)
+
+// Text Colors
+$text-primary: $secondary-black;
+$text-secondary: #2c2c2c; // Darker gray for better contrast
+$text-light: #4a4a4a; // Darker gray for better readability
+$text-white: #ffffff;
+$text-muted: #666666; // Darker muted text for better contrast
+$text-on-green: #ffffff; // White text for green backgrounds
+$text-on-light: $secondary-black; // Black text for light backgrounds
+
+// Background Colors
+$bg-primary: #ffffff;
+$bg-secondary: #f8f9fa;
+$bg-light: #fafbfa; // Very light background for better contrast
+$bg-light-green: #f8faf8; // Light green tint with better contrast
+$bg-dark: $secondary-black;
+$bg-green: $primary-green;
+$bg-green-light: rgba(
+  $primary-green-light,
+  0.08
+); // Lighter for better text contrast
+$bg-green-dark: rgba($primary-green-dark, 0.9);
+$bg-cream: #fffef8; // Warm cream background
+
+// Border Colors
+$border-light: #e5e7e5;
+$border-medium: #d1d5d1;
+$border-dark: $secondary-gray;
+$border-green: $primary-green-light;
+
+// Shadow Colors
+$shadow-light: rgba(0, 0, 0, 0.1);
+$shadow-medium: rgba(0, 0, 0, 0.15);
+$shadow-dark: rgba(0, 0, 0, 0.25);
+$shadow-green: rgba($primary-green, 0.2);
+
+// Typography
+// ===================================
+
+// Font Families
+$font-primary: "Inter", sans-serif;
+$font-heading: "Playfair Display", serif;
+
+// Font Weights
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Font Sizes
+$font-size-xs: 0.75rem; // 12px
+$font-size-sm: 0.875rem; // 14px
+$font-size-base: 1rem; // 16px
+$font-size-lg: 1.125rem; // 18px
+$font-size-xl: 1.25rem; // 20px
+$font-size-2xl: 1.5rem; // 24px
+$font-size-3xl: 1.875rem; // 30px
+$font-size-4xl: 2.25rem; // 36px
+$font-size-5xl: 3rem; // 48px
+
+// Line Heights
+$line-height-tight: 1.2;
+$line-height-normal: 1.5;
+$line-height-relaxed: 1.6;
+$line-height-loose: 1.8;
+
+// Spacing
+// ===================================
+
+$spacing-xs: 0.25rem; // 4px
+$spacing-sm: 0.5rem; // 8px
+$spacing-md: 1rem; // 16px
+$spacing-lg: 1.5rem; // 24px
+$spacing-xl: 2rem; // 32px
+$spacing-2xl: 3rem; // 48px
+$spacing-3xl: 4rem; // 64px
+$spacing-4xl: 5rem; // 80px
+
+// Border Radius
+// ===================================
+
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 12px;
+$radius-xl: 16px;
+$radius-2xl: 20px;
+$radius-full: 50%;
+
+// Breakpoints
+// ===================================
+
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-2xl: 1536px;
+
+// Z-Index
+// ===================================
+
+$z-dropdown: 1000;
+$z-sticky: 1020;
+$z-fixed: 1030;
+$z-modal-backdrop: 1040;
+$z-modal: 1050;
+$z-popover: 1060;
+$z-tooltip: 1070;
+
+// Transitions
+// ===================================
+
+$transition-fast: 0.15s ease;
+$transition-normal: 0.3s ease;
+$transition-slow: 0.5s ease;
+
+// Common transition properties
+$transition-all: all $transition-normal;
+$transition-colors: color $transition-normal,
+  background-color $transition-normal, border-color $transition-normal;
+$transition-transform: transform $transition-normal;
+$transition-opacity: opacity $transition-normal;
+
+// Component Specific Variables
+// ===================================
+
+// Buttons
+$btn-padding-sm: $spacing-sm $spacing-md;
+$btn-padding-md: $spacing-md $spacing-xl;
+$btn-padding-lg: $spacing-lg ($spacing-xl + $spacing-sm);
+
+// Cards
+$card-padding: $spacing-xl;
+$card-radius: $radius-lg;
+$card-shadow: 0 4px 20px $shadow-light;
+$card-shadow-hover: 0 8px 30px $shadow-medium;
+
+// Navigation
+$navbar-height: 80px;
+$navbar-padding: $spacing-md 0;
+
+// Sections
+$section-padding: $spacing-3xl 0;
+$section-padding-sm: $spacing-2xl 0;
+
+// Container
+$container-max-width: 1200px;
+$container-padding: 0 $spacing-md;
+
+// Grid
+$grid-gap: $spacing-xl;
+$grid-gap-sm: $spacing-lg;
+
+// Malaysian-Indonesian Cultural Colors (for special elements)
+// ===================================
+
+$cultural-batik-brown: #8b4513;
+$cultural-batik-gold: #daa520;
+$cultural-tropical-green: #228b22;
+$cultural-ocean-blue: #4682b4;
+$cultural-sunset-orange: #ff6347;
+
+// Status Colors
+// ===================================
+
+$success-color: $primary-green;
+$warning-color: $accent-orange;
+$error-color: $accent-red;
+$info-color: #17a2b8;
+
+// Utility Classes Variables
+// ===================================
+
+$utilities: (
+  "margin": $spacing-md,
+  "padding": $spacing-md,
+  "gap": $spacing-md,
+  "border-radius": $radius-md,
+);
